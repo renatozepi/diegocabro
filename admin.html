@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Administrador</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./app.css"/>
+</head>
+<body>
+    <!-- antes de admin.js / usuario.js / temporal.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./supabaseClient.js"></script>
+    <script src="./admin.js"></script>
+
+
+  <main class="container">
+    <header class="row" style="justify-content:space-between">
+      <h1>Panel de administración</h1>
+      <button id="logout" class="btn secondary">Cerrar sesión</button>
+    </header>
+
+    <section class="card grid" aria-labelledby="u-title">
+      <h2 id="u-title">Usuarios</h2>
+
+      <div class="row" style="gap:8px">
+        <input id="new-email" class="input" type="email" placeholder="correo@dominio.com" aria-label="Correo nuevo usuario"/>
+        <button id="btn-create" class="btn" type="button">Crear usuario y enviar código</button>
+      </div>
+      <div class="helper">Al crear, se genera un código de 10 letras. Se envía por correo y se muestra abajo.</div>
+      <div id="code-pop" class="success" role="status" aria-live="polite"></div>
+
+      <div class="space"></div>
+
+      <div id="users-list" class="grid"></div>
+      <div id="users-msg" class="error" role="alert"></div>
+    </section>
+
+    <section class="card grid" aria-labelledby="posts-title">
+      <h2 id="posts-title">Portal de posts</h2>
+      <div class="actions">
+        <a href="usuario.html" class="btn secondary" aria-label="Ir al portal de posts">Ir al portal</a>
+      </div>
+    </section>
+
+    <section class="card grid" aria-labelledby="cred-title">
+      <h2 id="cred-title">Solicitudes de cambio de credenciales</h2>
+      <div id="reqs" class="grid"></div>
+      <div id="reqs-msg" class="error"></div>
+    </section>
+  </main>
+
+  <script src="./admin.js"></script>
+</body>
+</html>

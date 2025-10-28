@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurar credenciales</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Configurar credenciales</h1>
+    <p id="detected-email"></p>
+
+    <div id="form-container">
+      <label>Nombre de usuario</label>
+      <input type="text" id="username">
+
+      <label>Contraseña</label>
+      <input type="password" id="password">
+
+      <label>Repetir contraseña</label>
+      <input type="password" id="password2">
+
+      <label>Nombres</label>
+      <input type="text" id="nombres">
+
+      <label>Apellidos</label>
+      <input type="text" id="apellidos">
+
+      <button id="guardar">Guardar y continuar</button>
+      <p id="msg"></p>
+    </div>
+
+    <div id="waiting" style="display:none;">
+      <h2>Revisa tu correo</h2>
+      <p>Hemos enviado un enlace de confirmación a tu correo electrónico.  
+      Una vez que lo confirmes, podrás iniciar sesión.</p>
+      <button onclick="location.href='index.html'">Volver al inicio</button>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="temporal.js"></script>
+</body>
+</html>

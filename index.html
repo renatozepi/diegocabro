@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Acceso</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./app.css" />
+</head>
+<body>
+  <!-- Supabase -->
+    <!-- antes de admin.js / usuario.js / temporal.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./supabaseClient.js"></script>
+    <script src="./index.js"></script>
+
+  <main class="container" aria-labelledby="titulo">
+    <h1 id="titulo">Portal de acceso</h1>
+
+    <!-- Tabs: contraseña / código temporal -->
+    <div class="tabs" role="tablist" aria-label="método de inicio de sesión">
+      <button id="tab-pass" class="tab active" role="tab" aria-selected="true" aria-controls="panel-pass">Contraseña</button>
+      <button id="tab-code" class="tab" role="tab" aria-selected="false" aria-controls="panel-code">Código temporal</button>
+    </div>
+
+    <!-- Panel: contraseña -->
+    <section id="panel-pass" role="tabpanel" aria-labelledby="tab-pass">
+      <div class="card grid" aria-describedby="ayuda-pass">
+        <div class="grid">
+          <label for="ident" class="label">Usuario o correo</label>
+          <input id="ident" class="input" type="text" autocomplete="username" required aria-required="true" />
+        </div>
+
+        <div class="grid">
+          <label for="password" class="label">Contraseña</label>
+          <div class="row">
+            <input id="password" class="input" type="password" autocomplete="current-password" required aria-required="true" />
+            <button id="togglePw" class="btn secondary" type="button" aria-pressed="false" aria-controls="password">Mostrar contraseña</button>
+          </div>
+          <div class="row">
+            <label class="row" style="gap:6px">
+              <input id="remember" type="checkbox" /> <span>Recuérdame</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="btnLogin" class="btn" type="button">Iniciar sesión</button>
+        </div>
+
+        <div id="msgPass" class="error" role="alert" aria-live="polite"></div>
+        <p id="ayuda-pass" class="helper">Use su usuario o correo institucional y su contraseña.</p>
+      </div>
+    </section>
+
+    <!-- Panel: código temporal -->
+    <section id="panel-code" role="tabpanel" aria-labelledby="tab-code" hidden>
+      <div class="card grid" aria-describedby="ayuda-code">
+        <div class="grid">
+          <label for="code-email" class="label">Correo</label>
+          <input id="code-email" class="input" type="email" autocomplete="email" required aria-required="true" />
+        </div>
+        <div class="grid">
+          <label for="code" class="label">Código temporal de 10 letras</label>
+          <input id="code" class="input" type="text" maxlength="10" pattern="[A-Za-z]{10}" aria-describedby="code-help" required aria-required="true" />
+          <span id="code-help" class="helper">Válido por 10 minutos. Solo letras, mayúsculas o minúsculas.</span>
+        </div>
+
+        <div class="actions">
+          <button id="btnCode" class="btn" type="button">Continuar</button>
+        </div>
+
+        <div id="msgCode" class="error" role="alert" aria-live="polite"></div>
+        <p id="ayuda-code" class="helper">Si es su primer ingreso, use el código enviado por correo.</p>
+      </div>
+    </section>
+
+    <footer>
+      <p>Soporte de correo: SMTP Brevo configurado en Supabase. Remitente: no-reply@institucion.edu</p>
+    </footer>
+  </main>
+
+  <script src="./login.js"></script>
+</body>
+</html>

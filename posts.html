@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portal de Posts</title>
+  <link rel="icon" href="data:,">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="posts.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="posts.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1 class="title">Portal de Posts</h1>
+      <div class="top-actions">
+        <button id="logout" class="btn ghost" aria-label="Cerrar sesión">Cerrar sesión</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container content">
+    <!-- Buscador -->
+    <section aria-labelledby="search-title" class="card">
+      <div class="card-header">
+        <h2 id="search-title">Buscar</h2>
+      </div>
+      <div class="search-grid">
+        <input id="q-text" class="input" type="search" placeholder="Buscar por texto del post o respuesta" aria-label="Buscar por texto">
+        <input id="q-user" class="input" type="search" placeholder="Buscar por usuario" aria-label="Buscar por usuario">
+        <button id="btn-search" class="btn">Buscar</button>
+        <button id="btn-clear" class="btn ghost">Limpiar</button>
+      </div>
+      <p id="search-msg" class="muted"></p>
+    </section>
+
+    <!-- Nuevo post -->
+    <section aria-labelledby="new-title" class="card">
+      <div class="card-header">
+        <h2 id="new-title">Nuevo post</h2>
+      </div>
+      <div class="stack">
+        <textarea id="post-content" class="input area" maxlength="2600" placeholder="Escribe aquí tu post (máx 500 palabras)"></textarea>
+        <input id="tags" class="input" type="text" placeholder="Etiquetas separadas por coma (máx 5)">
+        <div class="row end">
+          <button id="publish" class="btn">Publicar</button>
+        </div>
+        <p id="post-msg" class="muted" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- Listado -->
+    <section aria-labelledby="feed-title" class="card">
+      <div class="card-header">
+        <h2 id="feed-title">Posts recientes</h2>
+      </div>
+      <div id="posts" class="feed" role="list"></div>
+      <div class="row center">
+        <button id="more" class="btn ghost">Cargar más</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portal de usuario</title>
+  <link rel="stylesheet" href="./app.css" />
+  <link rel="icon" href="data:,">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="./supabaseClient.js" defer></script>
+  <script src="./usuario.js" defer></script>
+</head>
+
+<body>
+<!-- antes de admin.js / usuario.js / temporal.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="./supabaseClient.js"></script>
+    <script src="./usuario.js"></script>
+
+
+  <main class="container">
+    <header class="row" style="justify-content:space-between">
+      <h1>Portal de usuario</h1>
+      <div class="actions">
+        <a href="admin.html" id="admin-link" class="btn secondary" hidden>Panel admin</a>
+        <button id="logout" class="btn secondary">Cerrar sesión</button>
+      </div>
+    </header>
+
+    <section class="card grid" aria-labelledby="posts-title">
+      <h2 id="posts-title">Posts</h2>
+      <div class="actions">
+        <button id="open-portal" type="button">Abrir portal de posts</button>
+        <a href="usuario.html" class="btn">Refrescar</a>
+        <a href="usuario.html" class="helper">El módulo 3 añadirá el portal completo estilo Reddit.</a>
+      </div>
+    </section>
+
+    <section class="card grid" aria-labelledby="cred-title">
+      <h2 id="cred-title">Solicitar cambio de credenciales</h2>
+      <div class="grid">
+        <label class="label" for="f-username">Usuario</label>
+        <input id="f-username" class="input" type="text" placeholder="nuevo usuario"/>
+        <label class="label" for="f-nombres">Nombres</label>
+        <input id="f-nombres" class="input" type="text"/>
+        <label class="label" for="f-apellidos">Apellidos</label>
+        <input id="f-apellidos" class="input" type="text"/>
+        <label class="label" for="f-email">Correo</label>
+        <input id="f-email" class="input" type="email"/>
+        <label class="label" for="f-pass">Contraseña</label>
+        <input id="f-pass" class="input" type="password" autocomplete="new-password"/>
+      </div>
+      <div class="actions">
+        <button id="send-req" class="btn">Enviar solicitud</button>
+      </div>
+      <div id="req-msg" class="error"></div>
+      <div id="req-ok" class="success"></div>
+    </section>
+  </main>
+
+  <script src="./usuario.js"></script>
+</body>
+</html>
